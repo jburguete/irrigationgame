@@ -1,3 +1,42 @@
+// LandCell class
+class LandCell
+{
+	constructor ( x, y, z, dx, dy )
+	{
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.dx = dx;
+		this.dy = dy;
+		this.h = 0;
+	}
+}
+
+// Land class
+class Land
+{
+	constructor ( length, width, height, nx, ny )
+	{
+		var i, j, k, x, y, dx, dy;
+		this.length = length;
+		this.width = width;
+		this.height = height;
+		dx = length / nx;
+		dy = width / ny;
+		this.ncells = nx * ny;
+		k = 0;
+		for ( i = 0; i < nx; ++i )
+		{
+			x = (i + 0.5) * length / nx;
+			for ( j = 0; j < nx; ++j )
+			{
+				y = (j + 0.5) * width / ny;
+				this.cell[k++] = new LandCell( x, y, height, dx, dy);
+			}
+		}
+	}
+}
+
 // Variables
 var scene, camera, renderer, geometry, material, cube;
 
